@@ -1,1 +1,15 @@
+name: Deploy Environment
 
+on:
+  workflow_call:
+
+jobs:
+  desplegar:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}  
+    steps:
+      - name: Desplegar en ${{ inputs.environment }}
+        run: |
+          echo "Desplegando en ${{ inputs.environment }}"
+          echo "Usando la API URL: $API_URL"
+          echo "Log Level: $LOG_LEVEL"
